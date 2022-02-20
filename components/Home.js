@@ -1,4 +1,11 @@
-import {Text, StyleSheet, View, SafeAreaView, Image} from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  SafeAreaView,
+  Image,
+  FlatList,
+} from 'react-native';
 import * as React from 'react';
 import categoriesData from '../assets/data/categoriesData';
 import popularData from '../assets/data/popularData';
@@ -8,6 +15,14 @@ import Feather from 'react-native-vector-icons/Feather';
 Feather.loadFont();
 
 export default Home = () => {
+  const renderCategoryItem = item => {
+    return (
+      <View>
+        <Text>Hello</Text>
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -24,13 +39,26 @@ export default Home = () => {
       <View style={styles.titleWrapper}>
         <Text style={styles.titlesSubtitle}>Food</Text>
         <Text style={styles.titleTitle}>Delivery</Text>
+      </View>
 
-        {/* {Search} */}
-        <View style={styles.searchWrapper}>
-          <Feather name="search" size={16} color={colors.textDark} />
-          <View style={styles.search}>
-            <Text style={styles.searchText}>Search</Text>
-          </View>
+      {/* {Search} */}
+      <View style={styles.searchWrapper}>
+        <Feather name="search" size={16} color={colors.textDark} />
+        <View style={styles.search}>
+          <Text style={styles.searchText}>Search</Text>
+        </View>
+      </View>
+
+      {/* {Categories} */}
+      <View style={styles.categoriesWrapper}>
+        <Text style={styles.categoriesTitle}>Categories</Text>
+        <View style={styles.categoriesListWrapper}>
+          <FlatList
+            data={categoriesData}
+            renderItem={renderCategoryItem}
+            keyExtractor={item => item.id}
+            horizontal={true}
+          />
         </View>
       </View>
     </View>
@@ -94,4 +122,17 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textLight,
   },
+
+  categoriesWrapper: {
+    marginTop: 30,
+  },
+
+  categoriesTitle: {
+    paddingHorizontal: 20,
+    fontFamily: 'Montserrat-Bold',
+    color: colors.textDark,
+    fontSize: 16,
+  },
+
+  categoriesListWrapper: {},
 });
