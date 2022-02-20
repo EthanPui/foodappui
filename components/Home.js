@@ -19,9 +19,19 @@ export default Home = () => {
           <Feather name="menu" size={24} color={colors.textDark} />
         </View>
       </SafeAreaView>
+
+      {/* {Titles} */}
       <View style={styles.titleWrapper}>
         <Text style={styles.titlesSubtitle}>Food</Text>
         <Text style={styles.titleTitle}>Delivery</Text>
+
+        {/* {Search} */}
+        <View style={styles.searchWrapper}>
+          <Feather name="search" size={16} color={colors.textDark} />
+          <View style={styles.search}>
+            <Text style={styles.searchText}>Search</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -51,15 +61,37 @@ const styles = StyleSheet.create({
   },
 
   titlesSubtitle: {
-    fontsize: 16,
-    fontFamily: 'Monteserrat-Regular',
+    fontSize: 16,
+    fontFamily: 'Montserrat-Regular',
     color: colors.textDark,
   },
 
   titleTitle: {
     paddingTop: 5,
     fontSize: 32,
-    fontFamily: 'Monteserrat-Bold',
+    fontFamily: 'Montserrat-Bold',
     color: colors.textDark,
+  },
+
+  searchWrapper: {
+    marginTop: 30,
+    paddingHorizontal: 20,
+    flexDirection: 'row',
+    alignContent: 'center',
+  },
+
+  search: {
+    marginLeft: 10,
+    flex: 1,
+    borderBottomColor: colors.textLight,
+    borderBottomWidth: 2,
+  },
+
+  searchText: {
+    marginLeft: 2,
+    marginBottom: 4.97,
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize: 14,
+    color: colors.textLight,
   },
 });
