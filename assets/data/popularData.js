@@ -1,6 +1,6 @@
 const popularData = [
   {
-    id: 1,
+    id: '1',
     title: 'Primavera Pizza',
     image: require('../images/pizza1.png'),
     rating: '5.0',
@@ -8,7 +8,7 @@ const popularData = [
   },
 
   {
-    id: 2,
+    id: '2',
     title: 'Vegetarian Pizza',
     image: require('../images/pizza2.png'),
     rating: '4.0',
@@ -16,7 +16,7 @@ const popularData = [
   },
 
   {
-    id: 3,
+    id: '3',
     title: 'Pepperoni Pizza',
     image: require('../images/pizza3.png'),
     rating: '5.0',
