@@ -15,10 +15,32 @@ import Feather from 'react-native-vector-icons/Feather';
 Feather.loadFont();
 
 export default Home = () => {
-  const renderCategoryItem = item => {
+  const renderCategoryItem = ({item}) => {
     return (
-      <View>
-        <Text>Hello</Text>
+      <View
+        style={[
+          styles.categoryItemWrapper,
+          {
+            backgroundColor: item.selected ? colors.primary : colors.white,
+            marginLeft: item.id == 1 ? 20 : 0,
+          },
+        ]}>
+        <Image source={item.image} style={styles.categoryItemImage} />
+        <Text style={styles.categoryItemTitle}>{item.title}</Text>
+        <View
+          style={[
+            styles.categorySelectWrapper,
+            {
+              backgroundColor: item.selected ? colors.white : colors.secondary,
+            },
+          ]}>
+          <Feather
+            name="chevron-right"
+            size={8}
+            style={styles.categorySelectIcon}
+            color={item.selected ? colors.black : colors.white}
+          />
+        </View>
       </View>
     );
   };
@@ -134,5 +156,45 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  categoriesListWrapper: {},
+  categoriesListWrapper: {
+    paddingTop: 15,
+    paddingBottom: 20,
+  },
+
+  categoryItemWrapper: {
+    backgroundColor: '#F5CA48',
+    marginRight: 20,
+    borderRadius: 20,
+  },
+
+  categoryItemImage: {
+    width: 60,
+    height: 60,
+    marginTop: 24,
+    alignSelf: 'center',
+    marginHorizontal: 20,
+  },
+
+  categoryItemTitle: {
+    textAlign: 'center',
+    fontFamily: 'Montserrat-Medium',
+    color: colors.textDark,
+    marginTop: 10,
+    marginBottom: 29,
+    fontSize: 14,
+  },
+
+  categorySelectWrapper: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    width: 26,
+    height: 26,
+    marginBottom: 20,
+    borderRadius: 26,
+  },
+
+  categorySelectIcon: {
+    alignSelf: 'center',
+  },
 });
