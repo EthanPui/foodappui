@@ -6,6 +6,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Home from './components/Home';
+import Details from './components/Details';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +18,11 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{headerShown: false}} //Remove default header
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
           options={{headerShown: false}} //Remove default header
         />
       </Stack.Navigator>
