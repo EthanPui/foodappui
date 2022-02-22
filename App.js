@@ -8,7 +8,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Home from './components/Home';
 import Details from './components/Details';
 
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {

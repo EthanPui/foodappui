@@ -1,4 +1,3 @@
-import {NavigationHelpersContext} from '@react-navigation/native';
 import * as React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -24,6 +23,18 @@ export default Details = ({route, navigation}) => {
           </View>
         </View>
       </SafeAreaView>
+
+      {/* {Titles} */}
+      <View style={styles.titleWrapper}>
+        <Text style={styles.detailsTitle}>{item.title}</Text>
+      </View>
+
+      {/* {Price} */}
+      <View style={styles.detailsPriceWrapper}>
+        <Text style={styles.detailsPrice}>${item.price}</Text>
+      </View>
+
+      {/* {Pizza info} */}
     </View>
   );
 };
@@ -50,5 +61,30 @@ const styles = new StyleSheet.create({
     backgroundColor: colors.primary,
     padding: 14,
     borderRadius: 10,
+  },
+
+  titleWrapper: {
+    paddingTop: 30,
+    paddingLeft: 20,
+  },
+
+  detailsTitleWrapper: {},
+
+  detailsTitle: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 32,
+    color: colors.textDark,
+    width: '50%',
+  },
+
+  detailsPriceWrapper: {
+    paddingTop: 20,
+    paddingLeft: 20,
+  },
+
+  detailsPrice: {
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize: 32,
+    color: colors.secondary,
   },
 });
